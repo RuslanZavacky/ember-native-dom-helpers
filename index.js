@@ -1,6 +1,8 @@
 /* eslint-env node */
 'use strict';
 
+const cacheKeyForTree = require('calculate-cache-key-for-tree');
+
 module.exports = {
   name: 'ember-native-dom-helpers',
 
@@ -20,5 +22,9 @@ module.exports = {
     return this.preprocessJs(namespacedTree, '/', this.name, {
       registry: this.registry,
     });
-  }
+  },
+
+  cacheKeyForTree(treeType) {
+    return cacheKeyForTree(treeType, this);
+  },
 };
